@@ -15,11 +15,8 @@ def weather_by_city(city_name):
         result = requests.get(weather_url, params=params)
         weather = result.json()
         if "data" in weather:
-            print("if ok")
             if "current_condition" in weather["data"]:
-                print("if two ok")
                 try:
-                    print("try ok")
                     return weather["data"]["current_condition"][0]
                 except(IndexError, TypeError):
                     return False
